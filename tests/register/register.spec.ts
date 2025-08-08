@@ -12,7 +12,7 @@ test.describe('Register', () => {
 
         await page.goto(baseUrl);
         await expect(page).toHaveURL(baseUrl);
-        await page.getByRole('link', { name: 'Website for automation' }).isVisible();
+        await expect(page.getByRole('link', { name: 'Website for automation' })).toBeVisible();
         await page.getByRole('link', { name: 'Signup / Login' }).click();
         await expect(page).toHaveURL(`${baseUrl}/login`);
 
@@ -41,7 +41,7 @@ test.describe('Register', () => {
         await page.getByRole('textbox', { name: 'Mobile Number *' }).fill('(415) 839-2746')
         await page.getByRole('button', { name: 'Create Account' }).click();
         await expect(page).toHaveURL(`${baseUrl}/account_created`);
-        await page.waitForTimeout(2000);
+
 
 
 

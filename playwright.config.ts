@@ -25,11 +25,14 @@ export default defineConfig({
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
+    screenshot: 'only-on-failure', // or 'on', 'off'
+    video: 'on', // on retain-on-failure
     /* Base URL to use in actions like `await page.goto('/')`. */
     baseURL: 'https://automationexercise.com',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
+    ignoreHTTPSErrors: true,
   },
 
   /* Configure projects for major browsers */
